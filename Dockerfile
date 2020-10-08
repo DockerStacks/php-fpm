@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y libz-dev libmemcached-dev libjpeg-dev l
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl
 
-RUN brew install oniguruma
+RUN apt-get install -y curl apt-utils wget unzip
 
 RUN pecl install apcu \
     && docker-php-ext-enable apcu
