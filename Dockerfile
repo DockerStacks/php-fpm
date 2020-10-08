@@ -35,11 +35,7 @@ RUN apt-get update \
     && apt-get install -y git \
     && apt-get install -y nano \
     && apt-get install -y sudo \
-    && apt-get install -y wget    
-
-COPY docker-entrypoint.sh /usr/local/bin/
-
-ENTRYPOINT ["docker-entrypoint.sh"]
+    && apt-get install -y wget 
 
 WORKDIR /var/www
 
