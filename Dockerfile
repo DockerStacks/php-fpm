@@ -30,14 +30,12 @@ RUN pecl install mcrypt-1.0.2 \
 
 RUN docker-php-ext-install zip \
     && docker-php-ext-enable zip
-
-RUN curl https://getcomposer.org/download/1.8.4/composer.phar > /tmp/composer.phar \
-    && chmod +x /tmp/composer.phar \
-    && mv /tmp/composer.phar /usr/local/bin/composer \
-    && apt-get update && apt-get install -y less \
-    && curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > /tmp/wp-cli.phar \
-    && chmod +x /tmp/wp-cli.phar \
-    && mv /tmp/wp-cli.phar /usr/local/bin/wp
+RUN apt-get update \
+    && apt-get install -y composer \
+    && apt-get install -y git \
+    && apt-get install -y nano \
+    && apt-get install -y sudo \
+    && apt-get install -y wget    
 
 COPY docker-entrypoint.sh /usr/local/bin/
 
