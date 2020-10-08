@@ -27,7 +27,9 @@ RUN brew install oniguruma
 RUN pecl install apcu \
     && docker-php-ext-enable apcu
 
-RUN pecl install mcrypt-1.0.2 \
+RUN apt-get update -y \
+    && apt-get install -y libmcrypt-dev \
+    && pecl install mcrypt-1.0.1 \
     && docker-php-ext-enable mcrypt
 
 RUN docker-php-ext-install zip \
