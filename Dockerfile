@@ -27,11 +27,6 @@ RUN apt-get install -y curl apt-utils wget unzip
 RUN pecl install apcu \
     && docker-php-ext-enable apcu
 
-RUN apt-get update -y \
-    && apt-get install -y libmcrypt-dev \
-    && pecl install mcrypt-1.0.1 \
-    && docker-php-ext-enable mcrypt
-
 RUN docker-php-ext-install zip \
     && docker-php-ext-enable zip
 RUN apt-get update \
