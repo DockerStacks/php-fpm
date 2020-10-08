@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y libfreetype6-dev libjpeg62-turbo-dev li
 	&& docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
 	&& docker-php-ext-install -j$(nproc) gd
 
-RUN apt-get update && apt-get install -y libz-dev libmemcached-dev libjpeg-dev zlib1g-dev g++ libpng-dev libxml2-dev libicu-dev libcurl4-gnutls-dev libzip-dev libzip4 \
+RUN apt-get update && apt-get install -y libz-dev libmemcached-dev libjpeg-dev libonig-dev zlib1g-dev g++ libpng-dev libxml2-dev libicu-dev libcurl4-gnutls-dev libzip-dev libzip4 \
     && pecl install memcached \
     && docker-php-ext-enable memcached \
     && docker-php-ext-install pdo pdo_mysql mysqli opcache \
